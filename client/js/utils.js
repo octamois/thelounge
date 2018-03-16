@@ -20,7 +20,6 @@ module.exports = {
 	move,
 	resetHeight,
 	setNick,
-	toggleNickEditor,
 	toggleNotificationMarkers,
 	requestIdleCallback,
 };
@@ -89,17 +88,8 @@ function join(args) {
 	}
 }
 
-function toggleNickEditor(toggle) {
-	$("#nick").toggleClass("editable", toggle);
-	$("#nick-value").prop("contenteditable", toggle);
-}
-
 function setNick(nick) {
-	// Closes the nick editor when canceling, changing channel, or when a nick
-	// is set in a different tab / browser / device.
-	toggleNickEditor(false);
-
-	$("#nick-value").text(nick);
+	$("#nick").text(nick);
 }
 
 const favicon = $("#favicon");
